@@ -4,8 +4,6 @@ import costa.gabriel.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "tb_cadastro")
 @Data
