@@ -1,14 +1,28 @@
 package costa.gabriel.CadastroDeNinjas.Missoes;
 
+import costa.gabriel.CadastroDeNinjas.Ninjas.NinjaModel;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("missoes")
 public class MissoesController {
 
+    MissoesService missoesService;
+
+    public MissoesController(MissoesService missoesService) {
+        this.missoesService = missoesService;
+    }
+
     @GetMapping("/listar")
-    public String listarMissoes(){
-        return "Missoes listadas com sucesso";
+    public List<MissoesModel> listarMissoes(){
+        return missoesService.listarMissoes();
+    }
+
+    @GetMapping("/listar/{id}")
+    public MissoesModel listarMissaoPorId(@PathVariable Long id){
+        return missoesService.listarMissaoPorId(id);
     }
 
     @PostMapping("/criar")
