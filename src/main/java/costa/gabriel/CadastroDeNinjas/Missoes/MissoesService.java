@@ -1,4 +1,5 @@
 package costa.gabriel.CadastroDeNinjas.Missoes;
+import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,4 +21,13 @@ public class MissoesService {
         Optional<MissoesModel> missaoPorId = missoesRepository.findById(id);
         return missaoPorId.orElse(null);
     }
+
+    public MissoesModel criarMissao(MissoesModel missao){
+        return missoesRepository.save(missao);
+    }
+
+    public void deletarMissao(Long id){
+        missoesRepository.deleteById(id);
+    }
+
 }
