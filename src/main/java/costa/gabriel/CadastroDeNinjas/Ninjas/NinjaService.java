@@ -36,6 +36,7 @@ public class NinjaService {
 
     public void deletarNinjaPorId(Long id) {
         ninjaRepository.deleteById(id);
+
     }
 
     public NinjaDTO atualizarNinja(Long id, NinjaDTO ninjaDTO) {
